@@ -1,12 +1,11 @@
 name: Checkout
 on: [push]
 
-permissions:
-  actions: read|write|none
-
 jobs:
     checkout-and-display-files:
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
         steps:
             - name: List Files Before
               run: ls -a
