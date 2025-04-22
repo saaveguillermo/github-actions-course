@@ -5,15 +5,12 @@ jobs:
     checkout-and-display-files:
         runs-on: ubuntu-latest
         permissions:
-            actions: write
+            contents: read # or write if you plan to make commits or push
+            actions: write # Allows the workflow to write to the logs and status
         steps:
             - name: List Files Before
               run: ls -a
-            - name: Checkout
-              run: |
-                git init
-                git remote add origin "https://$GITHUB_ACTOR:&{{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
-                git fetch origin
-                git checkout master
-            - name: List Files After
+            - name: Checkout Repository
+              uses: actions/checkout@v4 # Recommended to use the official checkout action
+            - name: List Files After Checkout
               run: ls -a
