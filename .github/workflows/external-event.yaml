@@ -1,6 +1,6 @@
 name: External Events
 on:
-  repository_disoatch:
+  repository_dispatch:
 
 jobs:
   echo-a-string:
