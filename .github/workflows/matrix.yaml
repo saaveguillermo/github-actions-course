@@ -14,7 +14,7 @@ jobs:
                       is-ubuntu: true
                       # This will add a new run
                     - os: macos-latest
-                      node-version: 15
+                      node-version: 20
                     # This will add only to the "original" set of runs
                     - experimental: false
                     # This will set to specific run the new value
