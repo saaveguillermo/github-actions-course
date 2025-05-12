@@ -1,4 +1,4 @@
-name: Manually triggered
+name: Dinamyc Matrix
 on:
   workflow_dispatch:
     inputs:
