@@ -3,10 +3,32 @@ on: [push]
 
 jobs:
     node-matrix:
+        continue-on-error: false
         strategy: 
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 node-version: [14, 15, 16]
+                includes:
+                    # This won't add a new run, only will append the info set
+                    - os: ubuntu-latest
+                      is-ubuntu: true
+                      # This will add a new run
+                    - os: macos-latest
+                      node-version: 15
+                    # This will add only to the "original" set of runs
+                    - experimental: false
+                    # This will set to specific run the new value
+                    - os: ubuntu-latest
+                      node-version: 16
+                      experimetnal: true
+                      # This will add a new run since there is not one to merge
+                    - os: ubuntu-latest
+                      node-version: 17
+                excludes:
+                    - os: ubuntu-latest
+                      node-version: 14
+            fail-fast: false
+            # max-parallel: 3
         runs-on: ${{ matrix.os }}
         steps:
             - run: node -v
