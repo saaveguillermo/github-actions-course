@@ -20,7 +20,7 @@ jobs:
                     # This will set to specific run the new value
                     - os: ubuntu-latest
                       node-version: 16
-                      experimetnal: true
+                      experimental: true
                       # This will add a new run since there is not one to merge
                     - os: ubuntu-latest
                       node-version: 17
