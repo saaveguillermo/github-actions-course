@@ -1,15 +1,12 @@
 name: Dinamyc Matrix
 on:
-    workflow_dispatch:
-        inputs:
-            os:
-                description: Operating System
-                default: "windows, ubuntu"
-                type: string
-            node-version:
-                description: Node Version
-                default: "14, 15, 16"
-                type: string
+  workflow_dispatch:
+    inputs:
+      string:
+        description: A string input
+        type: string
+        required: true
+        default: "Default value"
 
 jobs:
     prepare-matrix:
