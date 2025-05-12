@@ -8,7 +8,7 @@ jobs:
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 node-version: [14, 15, 16]
-                includes:
+                include:
                     # This won't add a new run, only will append the info set
                     - os: ubuntu-latest
                       is-ubuntu: true
@@ -24,7 +24,7 @@ jobs:
                       # This will add a new run since there is not one to merge
                     - os: ubuntu-latest
                       node-version: 17
-                excludes:
+                exclude:
                     - os: ubuntu-latest
                       node-version: 14
             fail-fast: false
