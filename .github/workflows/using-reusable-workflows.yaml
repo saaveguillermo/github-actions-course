@@ -1,17 +1,17 @@
 name: Calling Reusable Workflows
 on:
-    workflow_dispatch:
-        inputs:
-            name:
-                description: "Input description"
-                type: string
-                default: "Guillermo"
-                required: false
+  workflow_dispatch:
+    inputs:
+      string:
+        description: Input description
+        type: string
+        required: true
+        default: "Guillermo"
 
 jobs:
-    calling-reusable-workflow:
-        uses: saaveguillermo/workflows/.github/workflows/reusable.yaml@main
-        with:
-            name: ${{ inputs.name }}
-        secrets:
-            access-token: ${{ secrets.ACCESS_TOKEN }}
+  calling-reusable-workflow:
+    uses: saaveguillermo/workflows/.github/workflows/reusable.yaml@main
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN }}
